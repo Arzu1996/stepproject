@@ -37,6 +37,9 @@ public class Core {
       String line = console.readLn();
       Command user_input = parser.parse(line);
       switch (user_input) {
+        case MENU_SHOW:
+          console.printLn(menu.show());
+          break;
         case TIMETABLE_SHOW:
           timetableController.show();
           break;
