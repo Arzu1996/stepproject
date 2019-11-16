@@ -6,6 +6,8 @@ import step.controller.TimetableController;
 import step.io.Command;
 import step.io.Parser;
 
+import java.io.IOException;
+
 public class Core {
 
   private final Console console;
@@ -26,7 +28,7 @@ public class Core {
     this.mainController = new MainController();
   }
 
-  public void run() {
+  public void run() throws IOException {
     if (!database.isExisted()) {
       database.createInitialData();
     }
@@ -42,6 +44,10 @@ public class Core {
           break;
         case TIMETABLE_SHOW:
           timetableController.show();
+          break;
+
+        case TIMETABLE_SHOW_Line:
+          timetableController.FlightNoshow();
           break;
         case BOOKING_ADD:
           bookingController.add();

@@ -7,5 +7,5 @@ public enum Command {
   BOOKING_ADD,
   BOOKING_REMOVE,
   HELP,
-  EXIT
+    TIMETABLE_SHOW_Line, EXIT
 }

@@ -1,5 +1,8 @@
 package step.controller;
 
+import step.Console;
+import step.SystemConsole;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,5 +24,14 @@ public class TimetableController {
     } catch (IOException e) {
       System.err.format("IOException: %s%n", e);
     }
+  }
+
+  public void FlightNoshow() throws IOException {
+    Console console = new SystemConsole();
+    console.printLn ("Please insert the flight number: ");
+    String fltnumber= console.readLn();
+
+    String line = Files.readAllLines(Paths.get("src/main/java/step/data/timetable.txt")).get(Integer.parseInt(fltnumber)-1);
+    System.out.println(line);
   }
 }
